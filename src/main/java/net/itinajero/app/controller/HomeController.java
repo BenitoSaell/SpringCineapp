@@ -109,6 +109,11 @@ public class HomeController {
 		return serviceNews.searchNewsByStatusOrder();
 	}
 	
+	@RequestMapping(value="/formLogin", method=RequestMethod.GET)
+	public String showLogin() {
+		return "formLogin";
+	}
+	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
