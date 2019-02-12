@@ -20,20 +20,21 @@
 			access="hasAnyAuthority('GERENTE')" />
 
 		<!-- Custom login form -->
-		<form-login login-page="/formLogin" default-target-url="/admin/index" />
+		<form-login login-page="/formLogin"
+			default-target-url="/admin/index" />
 	</http>
-
-
+	<!-- Autenticacion desde una base de datos -->
 	<authentication-manager>
-
 		<authentication-provider>
-			<user-service>
-				<user name="luis" password="{noop}luis123" authorities="EDITOR" />
-				<user name="marisol" password="{noop}mari123"
-					authorities="GERENTE" />
-			</user-service>
+			<jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="select username,pwd,activo from users1 where username = ? "
+				authorities-by-username-query="select username,profile from profiles where username = ? " />
 		</authentication-provider>
-
 	</authentication-manager>
+
+	<!-- authentication-manager> <authentication-provider> <user-service> <user 
+		name="luis" password="{noop}luis123" authorities="EDITOR" /> <user name="marisol" 
+		password="{noop}mari123" authorities="GERENTE" /> </user-service> </authentication-provider> 
+		</authentication-manager -->
 
 </b:beans>
