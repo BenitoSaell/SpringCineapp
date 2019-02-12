@@ -20,6 +20,7 @@
 				<li><a href="${urlRoot}movies/index">Peliculas</a></li>
 				<li><a href="${urlRoot}schedules/index">Horarios</a></li>
 				<li><a href="${urlRoot}about">Acerca</a></li>
+				<li><a href="${urlRoot}admin/logout">Salir</a></li>
 				<li><a href="#">Login</a></li>
 			</ul>
 		</div>
