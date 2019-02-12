@@ -13,6 +13,6 @@ import net.itinajero.app.model.Schedule;
 @Repository
 public interface SchedulesRepository extends JpaRepository<Schedule, Integer> {
 	List<Schedule> findByMovie_IdAndDateOrderByHour(int idMovie, Date date);
-	//@Query("select s from Schedules s where s.date = :date and movie.status='Activa' group by s.movie order by movie.id asc")
-	//List<Schedule> findByDate(@Param("date") Date date);
+	@Query("select s from Schedule s where s.date = :date and movie.status='Activa' group by s.movie order by movie.id asc")
+	List<Schedule> findByDate(@Param("date") Date date);
 }

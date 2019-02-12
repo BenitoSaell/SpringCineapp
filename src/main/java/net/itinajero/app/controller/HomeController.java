@@ -1,5 +1,6 @@
 package net.itinajero.app.controller;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -48,13 +49,20 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/search", method=RequestMethod.POST)
-	public String search(@RequestParam("dateF") String dateF, Model model) {
+	public String search(@RequestParam("dateF") Date dateF, Model model) {
 		System.out.println("Fecha de busqueda "+dateF);
-		List<String> dateList = utileria.getNextDays(4);
-		List <Movie> movies = serviceMovies.searchAll();
-		model.addAttribute("movies", movies);
-		model.addAttribute("dateList", dateList);
-		model.addAttribute("dateSearch", dateF);
+		try {
+			Date date = dateFormat.parse(dateFormat.format(dateF));
+			List<String> dateList = utileria.getNextDays(4);
+			List <Movie> movies = serviceMovies.searchStatusAndDate(date);
+			model.addAttribute("movies", movies);
+			model.addAttribute("dateList", dateList);
+			model.addAttribute("dateSearch", dateFormat.format(dateF));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 		return "home";
 		
@@ -62,13 +70,19 @@ public class HomeController {
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String showMain(Model model) {
-		List<String> dateList = utileria.getNextDays(4);
-		List <Movie> movies = serviceMovies.searchAll();
-		List <Banner> banners = serviceBanners.searchAll();
-		model.addAttribute("movies", movies);
-		model.addAttribute("banners", banners);
-		model.addAttribute("dateList", dateList);
-		model.addAttribute("dateSearch", dateFormat.format(new Date()));
+		try {
+			Date date = dateFormat.parse(dateFormat.format(new Date()));
+			List<String> dateList = utileria.getNextDays(4);
+			List <Movie> movies = serviceMovies.searchStatusAndDate(date);
+			List <Banner> banners = serviceBanners.searchAll();
+			model.addAttribute("movies", movies);
+			model.addAttribute("banners", banners);
+			model.addAttribute("dateList", dateList);
+			model.addAttribute("dateSearch", dateFormat.format(new Date()));
+			
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		return "home";
 	}
 	

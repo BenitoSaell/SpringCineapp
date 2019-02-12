@@ -116,10 +116,10 @@ public class MoviesServiceImpl implements IMoviesService{
 		
 	}
 
-	//@Override
-	//public List<Movie> searchStatusAndDate(Date date) {
+	@Override
+	public List<Movie> searchStatusAndDate(Date date) {
 		// TODO Auto-generated method stub
-		//return null;
-	//}
+		return null;
+	}
 	
 }

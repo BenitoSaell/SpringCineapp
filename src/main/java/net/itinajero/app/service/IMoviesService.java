@@ -7,7 +7,7 @@ import net.itinajero.app.model.Movie;
 
 public interface IMoviesService {
 	List<Movie> searchAll();
-	//List<Movie> searchStatusAndDate(Date date);
+	List<Movie> searchStatusAndDate(Date date);
 	Movie searchByID(int idMovie);
 	void insert(Movie movie);
 	List<String> searchGenders();

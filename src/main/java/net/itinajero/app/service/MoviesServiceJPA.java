@@ -65,10 +65,10 @@ public class MoviesServiceJPA implements IMoviesService{
 		moviesRepo.deleteById(idMovie);
 	}
 
-	//@Override
-	//public List<Movie> searchStatusAndDate(Date date) {
-		//return searchMovies(schedulesRepo.findByDate(date));
-	//}
+	@Override
+	public List<Movie> searchStatusAndDate(Date date) {
+		return searchMovies(schedulesRepo.findByDate(date));
+	}
 	
 	private List<Movie> searchMovies(List<Schedule> schedules){
 		List<Movie> movies = new LinkedList<>();
