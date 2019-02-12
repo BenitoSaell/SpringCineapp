@@ -2,7 +2,7 @@ package net.itinajero.app.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+//import org.springframework.stereotype.Service;
 
 import net.itinajero.app.model.News;
 

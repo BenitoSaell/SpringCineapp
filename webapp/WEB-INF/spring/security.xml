@@ -20,7 +20,7 @@
 			access="hasAnyAuthority('GERENTE')" />
 
 		<!-- Custom login form -->
-		<form-login login-page="/formLogin" />
+		<form-login login-page="/formLogin" default-target-url="/admin/index" />
 	</http>
 
 

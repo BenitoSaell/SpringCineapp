@@ -21,7 +21,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import net.itinajero.app.service.IMoviesService;
 import net.itinajero.app.service.ISchedulesService;
-import net.itinajero.app.util.utileria;
 import net.itinajero.app.model.Movie;
 import net.itinajero.app.model.Schedule;
 
