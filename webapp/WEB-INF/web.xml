@@ -53,4 +53,37 @@
 		<error-code>500</error-code>
 		<location>/WEB-INF/views/error/500.jsp</location>
 	</error-page>
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>URLs protegidas solo para el rol Editor</web-resource-name>
+			<!--Define the context-relative URL(s) to be protected -->
+			<url-pattern>/schedules/*</url-pattern>
+			<url-pattern>/news/*</url-pattern>
+			<url-pattern>/movies/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<!--Anyone with this role may access this area -->
+			<role-name>editor</role-name>
+		</auth-constraint>
+	</security-constraint>
+	
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>URLs protegidas solo para el rol Gerente</web-resource-name>
+			<!--Define the context-relative URL(s) to be protected -->
+			<url-pattern>/schedules/*</url-pattern>
+			<url-pattern>/news/*</url-pattern>
+			<url-pattern>/movies/*</url-pattern>
+			<url-pattern>/banners/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<!--Anyone with this role may access this area -->
+			<role-name>gerente</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+	<login-config>
+		<auth-method>BASIC</auth-method>
+	</login-config>
 </web-app>
