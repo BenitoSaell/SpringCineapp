@@ -67,7 +67,7 @@
 			<role-name>editor</role-name>
 		</auth-constraint>
 	</security-constraint>
-	
+
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>URLs protegidas solo para el rol Gerente</web-resource-name>
@@ -84,6 +84,17 @@
 	</security-constraint>
 
 	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/WEB-INF/views/formLogin.jsp</form-login-page>
+			<form-error-page>/WEB-INF/views/formError.jsp</form-error-page>
+		</form-login-config>
+	</login-config>
+	
+	<!-- Auth Method Basic
+	<login-config>
 		<auth-method>BASIC</auth-method>
 	</login-config>
+	 -->
+	
 </web-app>
