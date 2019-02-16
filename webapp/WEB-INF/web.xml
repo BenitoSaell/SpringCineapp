@@ -61,6 +61,7 @@
 			<url-pattern>/schedules/*</url-pattern>
 			<url-pattern>/news/*</url-pattern>
 			<url-pattern>/movies/*</url-pattern>
+			<url-pattern>/admin/*</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
 			<!--Anyone with this role may access this area -->
@@ -76,6 +77,7 @@
 			<url-pattern>/news/*</url-pattern>
 			<url-pattern>/movies/*</url-pattern>
 			<url-pattern>/banners/*</url-pattern>
+			<url-pattern>/admin/*</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
 			<!--Anyone with this role may access this area -->
