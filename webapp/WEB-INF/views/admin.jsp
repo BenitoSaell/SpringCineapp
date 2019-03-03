@@ -23,7 +23,7 @@
 
       <div class="jumbotron">        
         <h3>Administración del Sistema</h3>
-        <p>Bienvenido(a) ${user} </p>
+        <p>Bienvenido(a) ${user.name} </p>
       </div>
 
       <!-- FOOTER -->
